@@ -17,15 +17,15 @@ Un menú para poder pausar mientras el juego esta iniciado.
 En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir la victoria final y salir con vida del lugar.
 
 1. Mecánicas básicas
-    - **Movimiento**: Correr, saltar.
+    - **Movimiento**: Correr, saltar. ✔
     - **Acciones**: Atacar, recoger objetos.
 2. Mecánicas cooperativas
     - **PvP**: Combates entre jugadores
 
 ### Player
 
-1. Movimiento para los jugadores
-   - Movimiento 2D (movimiento horizontal y salto) con **rigybody**.
+1. Movimiento para los jugadores ✔
+   - Movimiento 2D (movimiento horizontal y salto) con **rigybody**. 
    - Mismo script para los jugadores pero distintas teclas para cada uno.
   
 2. Vida de los jugadores
