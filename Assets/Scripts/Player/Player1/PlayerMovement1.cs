@@ -13,7 +13,8 @@ public class PlayerMovement1 : MonoBehaviour
     bool playerOnGround;
     bool wasOnGround = false;
 
-
+    [Header("")]
+    [SerializeField] Transform visualRoot;
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPoint;
@@ -39,10 +40,17 @@ public class PlayerMovement1 : MonoBehaviour
         Vector2 movement = Vector2.zero;
 
         if (Input.GetKey(KeyCode.D))
+        {
             movement.x += 1;
+            visualRoot.localScale  = new Vector2(1, 1);
+
+        }
 
         if (Input.GetKey(KeyCode.A))
+        {
             movement.x -= 1;
+            visualRoot.localScale = new Vector2(-1, 1);
+        }
 
 
         //Aceleración y fricción del personaje
@@ -112,7 +120,7 @@ public class PlayerMovement1 : MonoBehaviour
             remainingJumps = stats.onAirJump;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
+        if (Input.GetKeyDown(KeyCode.W) && remainingJumps > 0)
         {
             float initialJumpForce = 3;
             rb.velocity = new Vector2(rb.velocity.x, initialJumpForce);
@@ -122,7 +130,7 @@ public class PlayerMovement1 : MonoBehaviour
             timeWhenPressSpace = 0.0f;
         }
 
-        if (Input.GetKey(KeyCode.Space) && remainingJumps > 0)
+        if (Input.GetKey(KeyCode.W) && remainingJumps > 0)
         {
             timeWhenPressSpace += Time.deltaTime;
 

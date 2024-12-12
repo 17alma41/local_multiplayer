@@ -20,19 +20,20 @@ En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir l
     - **Movimiento**: Correr, saltar. ✔
     - **Acciones**: Atacar, recoger objetos.
 2. Mecánicas cooperativas
-    - **PvP**: Combates entre jugadores
+    - **PvP**: Combates entre jugadores ✔
 
 ### Player
 
-1. Movimiento para los jugadores ✔
-   - Movimiento 2D (movimiento horizontal y salto) con **rigybody**. 
+1. Movimiento para los jugadores 
+   - Movimiento 2D (movimiento horizontal y salto) con **rigybody**. ✔
    - Mismo script para los jugadores pero distintas teclas para cada uno.
   
-2. Vida de los jugadores
-   - Distintos script de vida para cada jugador.
+2. Vida de los jugadores ✔
   
 3. Ataque
-   - Ataque mano a mano contra el otro jugador.
+   - Ataque mano a mano contra el otro jugador. ✔
+   - Saber cuándo ataca un jugador.
+   - Sensación de daño.
 
 #### Animación
 

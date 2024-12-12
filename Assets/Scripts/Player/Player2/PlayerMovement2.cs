@@ -13,7 +13,8 @@ public class PlayerMovement2 : MonoBehaviour
     bool playerOnGround;
     bool wasOnGround = false;
 
-
+    [Header("")]
+    [SerializeField] Transform visualRoot;
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPoint;
@@ -39,10 +40,16 @@ public class PlayerMovement2 : MonoBehaviour
         Vector2 movement = Vector2.zero;
 
         if (Input.GetKey(KeyCode.RightArrow))
+        {
             movement.x += 1;
+            visualRoot.localScale = new Vector2(-1, 1);
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
+        {
             movement.x -= 1;
+            visualRoot.localScale = new Vector2(1, 1);
+        }
 
         //Aceleración y fricción del personaje
         if (playerOnGround)
