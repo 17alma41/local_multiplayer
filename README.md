@@ -31,10 +31,10 @@ En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir l
   
 2. Vida de los jugadores ✔
   
-3. Ataque
-   - Ataque cuerpo a cuerpo contra el otro jugador. ✔
-   - Saber cuándo ataca un jugador. ✔
-   - Sensación de daño.
+3. Ataque ✔
+   - Ataque cuerpo a cuerpo contra el otro jugador. 
+   - Saber cuándo ataca un jugador. 
+   - Sensación de daño. 
 
 #### Animación
 
@@ -46,4 +46,4 @@ En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir l
 
 Un mapa con delimitaciones para que los jugadores no puedan escapar, y obligue a los jugadores a enfrentarse entre sí.
 
-El mapa tendrá obstáculos o barreras para que los jugadores puedan defenderse.
+El mapa tendrá obstáculos o barreras para que los jugadores puedan defenderse. 
