@@ -21,10 +21,15 @@ public class Combat : MonoBehaviour
     [Header("Animations")]
     [SerializeField] SquashAndStretch attackAnimation;
 
+    [Header("Camera Shake")]
+    [SerializeField] private ScreenShake screenShake;
 
 
     private void Update()
     {
+        if (!GameManager.controlsEnabled)
+            return;
+
         if (timeToNextAttack > 0) { 
             timeToNextAttack -= Time.deltaTime;   
         }
@@ -46,7 +51,14 @@ public class Combat : MonoBehaviour
         {
             if (collision.CompareTag(enemyTag))
             {
-                collision.transform.GetComponent<PlayerHealth>().TakeDamage(bumpDamage);
+                // Calcular la dirección del knockback
+                Vector2 knockbackDirection =(collision.transform.position - transform.position).normalized;
+                float knockbackStrength = 5f;
+                Vector2 knockbackForce = knockbackDirection * knockbackStrength;
+            
+                collision.transform.GetComponent<PlayerHealth>().TakeDamage(bumpDamage, knockbackForce);
+
+                screenShake.TriggerShake(0.2f, 0.3f);
             }
         };
     }

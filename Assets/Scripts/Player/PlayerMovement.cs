@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.controlsEnabled)
+            return;
+
         wasOnGround = playerOnGround;
         playerOnGround = EstaEnSuelo();
 

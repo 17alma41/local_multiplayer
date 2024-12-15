@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Player Settings")]
+    public string playerName;
+
     [Header("Health Settings")]
     public int maxHealth = 3;
     public int currentHealth;
@@ -15,40 +18,40 @@ public class PlayerHealth : MonoBehaviour
     [Header("")]
     [SerializeField] SpriteRenderer playerSprite;
     [SerializeField] SquashAndStretch damageAnimation;
+    [SerializeField] ParticleSystem bloodParticles;
     [SerializeField] ParticleSystem deadParticles;
 
-    private float flashDuration = 0.1f;
+    [Header("Game Over")]
+    [SerializeField] private GameOverManager gameOverManager;
 
-    private void Update()
-    {
-        /*
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            damageAnimation.PlaySquashAndStretch();
-        }
-        */
-    }
+    private float flashDuration = 0.1f;
+    private Rigidbody2D rb;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         currentHealth = maxHealth;
 
         healthBar.fillAmount = currentHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 knockbackForce)
     {
         currentHealth -= damage;
 
-        // The health never gives -0 
+        // Para que la salud unca llegue a menos de 0
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if(knockbackForce != Vector2.zero)
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(knockbackForce, ForceMode2D.Impulse);
+        }
 
         StartCoroutine(FeedbackFlash(playerSprite));
         damageAnimation.PlaySquashAndStretch();
         UpdateHealthBar();
-
-        //Color randomColor =new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        //playerSprite.color = randomColor;
 
         if (currentHealth <= 0)
         {
@@ -86,5 +89,10 @@ public class PlayerHealth : MonoBehaviour
         StopAllCoroutines();
         playerSprite.color = Color.white; 
         deadParticles.Play();
+        bloodParticles.Play();
+
+        string winnerName = playerName == "Player 1" ? "Player 2" : "Player 1"; // Encontrar que jugador ha ganado
+
+        gameOverManager.ShowWinner(winnerName);
     }
 }
