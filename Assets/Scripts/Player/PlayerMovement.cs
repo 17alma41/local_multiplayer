@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement1 : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public PlayerStats stats;
     Rigidbody2D rb;
@@ -13,11 +14,20 @@ public class PlayerMovement1 : MonoBehaviour
     bool playerOnGround;
     bool wasOnGround = false;
 
+    [Header("Keys Settings")]
+    [SerializeField] KeyCode keyRight;
+    [SerializeField] KeyCode keyLeft;
+    [SerializeField] KeyCode keyJump;
+
     [Header("")]
     [SerializeField] Transform visualRoot;
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPoint;
+
+    [Header("Animations")]
+    [SerializeField] SquashAndStretch jumpingAnimation;
+    [SerializeField] SquashAndStretch fallAnimation;
 
     void Start()
     {
@@ -32,6 +42,7 @@ public class PlayerMovement1 : MonoBehaviour
         MovementProcess();
         JumpProcess();
         Gravity();
+        HandleGroundEffects();
     }
 
     void MovementProcess()
@@ -39,23 +50,21 @@ public class PlayerMovement1 : MonoBehaviour
         //Movimiento de teclas del player
         Vector2 movement = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(keyRight))
         {
             movement.x += 1;
-            visualRoot.localScale  = new Vector2(1, 1);
-
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(keyLeft))
         {
             movement.x -= 1;
-            visualRoot.localScale = new Vector2(-1, 1);
         }
 
 
         //Aceleración y fricción del personaje
         if (playerOnGround)
         {
+
             if (movement != Vector2.zero)
             {
                 rb.velocity += movement * stats.groundAcceleration * Time.deltaTime;
@@ -113,6 +122,14 @@ public class PlayerMovement1 : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+    void HandleGroundEffects()
+    {
+        if (playerOnGround && !wasOnGround)
+        {  
+            fallAnimation.PlaySquashAndStretch();        
+        }
+    }
+
     void JumpProcess()
     {
         if (EstaEnSuelo())
@@ -120,8 +137,10 @@ public class PlayerMovement1 : MonoBehaviour
             remainingJumps = stats.onAirJump;
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && remainingJumps > 0)
+        if (Input.GetKeyDown(keyJump) && remainingJumps > 0)
         {
+            jumpingAnimation.PlaySquashAndStretch();
+
             float initialJumpForce = 3;
             rb.velocity = new Vector2(rb.velocity.x, initialJumpForce);
 
@@ -130,9 +149,10 @@ public class PlayerMovement1 : MonoBehaviour
             timeWhenPressSpace = 0.0f;
         }
 
-        if (Input.GetKey(KeyCode.W) && remainingJumps > 0)
+        if (Input.GetKey(keyJump) && remainingJumps > 0)
         {
             timeWhenPressSpace += Time.deltaTime;
+            jumpingAnimation.PlaySquashAndStretch();
 
             //Limitar salto cuando presiona el espacio
             if (stats.maxJumpPressTime >= timeWhenPressSpace)

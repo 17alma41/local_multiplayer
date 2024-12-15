@@ -18,6 +18,9 @@ public class Combat : MonoBehaviour
     [SerializeField] private string enemyTag;
     [SerializeField] private KeyCode KeyCode;
 
+    [Header("Animations")]
+    [SerializeField] SquashAndStretch attackAnimation;
+
 
 
     private void Update()
@@ -29,6 +32,7 @@ public class Combat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode) && timeToNextAttack <= 0)
         {
             Bump();
+            attackAnimation.PlaySquashAndStretch();
             timeToNextAttack = timeBetweenAttack;
         }
     }
