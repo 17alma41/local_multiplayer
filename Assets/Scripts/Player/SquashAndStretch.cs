@@ -165,7 +165,6 @@ public class SquashAndStretch : MonoBehaviour
 
         } while (looping);
 
-        print("coroutine ends");
     }
 
     public void SetLooping(bool shouldLoop)

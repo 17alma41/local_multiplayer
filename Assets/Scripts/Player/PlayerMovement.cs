@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] KeyCode keyRight;
     [SerializeField] KeyCode keyLeft;
     [SerializeField] KeyCode keyJump;
+    //[SerializeField] KeyCode keyActivateAbility;
 
     [Header("")]
     [SerializeField] Transform visualRoot;
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementProcess()
     {
-        //Movimiento de teclas del player
+        // Movimiento de teclas del player
         Vector2 movement = Vector2.zero;
 
         if (Input.GetKey(keyRight))
@@ -64,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //Aceleración y fricción del personaje
+        // Aceleración y fricción del personaje
         if (playerOnGround)
         {
 
@@ -74,11 +75,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //Fricción en el suelo
+                // Fricción en el suelo
                 rb.velocity = new Vector2(rb.velocity.x / Mathf.Clamp(stats.groundFriction, 1, Mathf.Infinity), rb.velocity.y);
             }
 
-            //Máxima velocidad del personaje horizontal en el suelo
+            // Máxima velocidad del personaje horizontal en el suelo
             if (Mathf.Abs(rb.velocity.x) > stats.maxGroundHorizontalSpeed)
             {
                 rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * stats.maxGroundHorizontalSpeed, rb.velocity.y);
@@ -92,18 +93,18 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //Fricción en el aire
+                // Fricción en el aire
                 rb.velocity = new Vector2(rb.velocity.x / Mathf.Clamp(stats.airFriction, 1, Mathf.Infinity), rb.velocity.y);
             }
 
-            //Máxima velocidad del personaje horizontal en el aire
+            // Máxima velocidad del personaje horizontal en el aire
             if (Mathf.Abs(rb.velocity.x) > stats.maxAirHorizontalSpeed)
             {
                 rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * stats.maxAirHorizontalSpeed, rb.velocity.y);
             }
         }
 
-        //Limitar la velocidad de caída
+        // Limitar la velocidad de caída
         if (rb.velocity.y < -5) /////////////////////////////
         {
             rb.velocity = new Vector2(rb.velocity.x, -stats.maxFallSpeed);
@@ -157,10 +158,10 @@ public class PlayerMovement : MonoBehaviour
             timeWhenPressSpace += Time.deltaTime;
             jumpingAnimation.PlaySquashAndStretch();
 
-            //Limitar salto cuando presiona el espacio
+            // Limitar salto cuando presiona el espacio
             if (stats.maxJumpPressTime >= timeWhenPressSpace)
             {
-                //Le doy una fuerza al salto
+                // Le doy una fuerza al salto
                 rb.velocity = new Vector2(rb.velocity.x, stats.jumpStregth);
             }
         }
@@ -168,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Gravity()
     {
-        //Las partículas son para comprobar la función de gravedad que está realizando el personaje 
+        // Las partículas son para comprobar la función de gravedad que está realizando el personaje 
 
         if (rb.velocity.y > stats.yVelocityLowGravityThreshold)
         {
