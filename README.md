@@ -22,7 +22,7 @@ En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir l
     - **Rondas**: 3 rondas.
 2. Mecánicas cooperativas ✔
     - **PvP**: Combates entre jugadores.
-    - **Habilidades**: Un sistema de habilidades random al inicio de la partida y que va cambiando conforme se empieza una ronda o partida.
+    - **Habilidades**: Un sistema de habilidades random al inicio de la partida y que va cambiando conforme se empieza una ronda o partida -> *in progress*
 
 ### Player
 
