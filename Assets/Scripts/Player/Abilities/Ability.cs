@@ -4,11 +4,18 @@ using UnityEngine;
 
 public abstract class Ability : ScriptableObject
 {
+    
     public string abilityName;
     public ParticleSystem particleEffect; // Aquí se mostrará el efecto de partículas
+    public PlayerStats playerStats;
 
-    // Método abstracto que deben implementar las habilidades derivadas
+    // Método abstracto que deben implementar las habilidades
     public abstract void ActivateAbility(Vector3 position);
+
+    public void SetPlayerStats(PlayerStats stats)
+    {
+        playerStats = stats;
+    }
 
     protected void ActivateEffects(Vector3 position)
     {
@@ -17,4 +24,6 @@ public abstract class Ability : ScriptableObject
         particle.Play();
 
     }
+    
+
 }

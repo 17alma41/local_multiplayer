@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41ec8dbaff961964885a63fcfa92d212, type: 3}
-  m_Name: InwaterAbility
+  m_Name: WaterAbility
   m_EditorClassIdentifier: 
   abilityName: 
   particleEffect: {fileID: 3259008969719672746, guid: 072ead37e9ba671499f7b42fde0e8de2, type: 3}
+  playerStats: {fileID: 11400000, guid: c155af517f861f24c902cea914441d16, type: 2}

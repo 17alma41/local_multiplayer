@@ -14,12 +14,7 @@ public class SkillManager : MonoBehaviour
         AssignRandomSkill();
     }
 
-    void Update()
-    {
-        
-    }
 
-    // Asignar habilidad aleatoria
     private void AssignRandomSkill()
     {
         List<Ability> availableSkills = new List<Ability>(abilitiesList);
@@ -34,6 +29,8 @@ public class SkillManager : MonoBehaviour
 
             player.currentAbility = chosenSkill;
 
+            chosenSkill.SetPlayerStats(player.playerStats);
+
             // Eliminar la habilidad de la lista para no repetirla
             abilitiesList.RemoveAt(abilityIndex);
         }
@@ -45,12 +42,14 @@ public class SkillManager : MonoBehaviour
 
         player.currentAbility = null; // Elimina la habilidad usada
 
-        if(commonSkills.Count > 0)
+        if (commonSkills.Count > 0)
         {
             int randomIndex = Random.Range(0, commonSkills.Count);
             Ability newSkill = commonSkills[randomIndex];
 
             player.currentAbility = newSkill;
+
+            newSkill.SetPlayerStats(player.playerStats);
 
             commonSkills.RemoveAt(randomIndex);
         }

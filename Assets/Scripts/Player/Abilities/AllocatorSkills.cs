@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AllocatorSkills : MonoBehaviour
 {
+    public PlayerStats playerStats;
     public Ability currentAbility;  // Habilidad asignada al jugador
 
     [SerializeField] KeyCode keyActivationSkill;  

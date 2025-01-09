@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: 
   particleEffect: {fileID: 3259008969719672746, guid: e2881c46e75ff7b4b987a492e888478b, type: 3}
+  playerStats: {fileID: 11400000, guid: c155af517f861f24c902cea914441d16, type: 2}
