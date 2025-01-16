@@ -9,10 +9,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        if (allocatorSkills != null && skillManager != null)
-        {
-            allocatorSkills.currentAbility.SetPlayerStats(allocatorSkills.playerStats);
-        }
+        //if (allocatorSkills != null && skillManager != null)
+        //{
+        //    allocatorSkills.currentAbility.SetPlayerStats(allocatorSkills.playerStats);
+        //}
     }
 
     void Update()

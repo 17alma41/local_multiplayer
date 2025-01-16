@@ -29,7 +29,13 @@ public class SkillManager : MonoBehaviour
 
             player.currentAbility = chosenSkill;
 
-            chosenSkill.SetPlayerStats(player.playerStats);
+            // chosenSkill.SetPlayerStats(player.playerStats);
+            PlayerMovement playerMovement;
+            // playerMovement = GetComponent<>(); // Buscar un componente de tipo playerMovement dentro del gameObject al que esta asociado el objeto "player".
+
+
+
+            // playerMovement.stats = chosenSkill.playerStats;
 
             // Eliminar la habilidad de la lista para no repetirla
             abilitiesList.RemoveAt(abilityIndex);
@@ -49,7 +55,7 @@ public class SkillManager : MonoBehaviour
 
             player.currentAbility = newSkill;
 
-            newSkill.SetPlayerStats(player.playerStats);
+            // newSkill.SetPlayerStats(player.playerStats);
 
             commonSkills.RemoveAt(randomIndex);
         }
