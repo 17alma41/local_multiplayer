@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class test3 : MonoBehaviour
+{
+    [SerializeField] Transform target;
+    [SerializeField] float acceleration = 5f;
+    [SerializeField] float maxSpeed = 5f;
+
+    Rigidbody2D rb;
+    Vector2 direction;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+    private void Update()
+    {
+        transform.up = target.position - transform.position;
+    }
+
+    void FixedUpdate()
+    {
+        direction = (target.position - transform.position);
+        rb.velocity += direction * acceleration * Time.fixedDeltaTime;
+
+        if (rb.velocity.magnitude > maxSpeed)
+            rb.velocity = rb.velocity.normalized * acceleration;
+
+    }
+
+    private void ResetMovement()
+    {
+        direction = new Vector2(Random.Range(-1f, 1f),
+            Random.Range(-1f, 1f))
+            .normalized * rb.velocity.magnitude;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("entro");
+        ResetMovement();
+    }
+
+}
