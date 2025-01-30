@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Limitar la velocidad de caída
-        if (rb.velocity.y < -5) /////////////////////////////
+        if (rb.velocity.y < -5) 
         {
             rb.velocity = new Vector2(rb.velocity.x, -stats.maxFallSpeed);
         }

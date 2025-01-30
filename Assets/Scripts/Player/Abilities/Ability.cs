@@ -12,11 +12,7 @@ public abstract class Ability : ScriptableObject
     // Método abstracto que deben implementar las habilidades
     public abstract void ActivateAbility(Vector3 position);
 
-    //public void SetPlayerStats(PlayerStats stats)
-    //{
-    //    playerStats = stats;
-    //}
-
+    /*
     protected void ActivateEffects(Vector3 position)
     {
         // Crear las partículas en la posición dada
@@ -24,6 +20,6 @@ public abstract class Ability : ScriptableObject
         particle.Play();
 
     }
-    
+    */
 
 }

@@ -7,7 +7,7 @@ public class AllocatorSkills : MonoBehaviour
     public PlayerStats playerStats;
     public Ability currentAbility;  // Habilidad asignada al jugador
 
-    [SerializeField] KeyCode keyActivationSkill;  
+    // [SerializeField] KeyCode keyActivationSkill;  
     private SkillManager skillManager; 
 
     private void Start()
@@ -17,10 +17,10 @@ public class AllocatorSkills : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyActivationSkill) && currentAbility != null)
-        {
-            ActivateAbility();  
-        }
+        //if (Input.GetKeyDown(keyActivationSkill) && currentAbility != null)
+        //{
+        //    ActivateAbility();  
+        //}
     }
 
     private void ActivateAbility()

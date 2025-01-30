@@ -9,7 +9,7 @@ public class InwaterAbility : Ability
     public override void ActivateAbility(Vector3 position)
     {
         // Activar un efecto de partículas
-        ActivateEffects(position);
+        // ActivateEffects(position);
     }
 
     
