@@ -14,6 +14,8 @@ public class test3 : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        ResetMovement();
     }
     private void Update()
     {
@@ -22,11 +24,11 @@ public class test3 : MonoBehaviour
 
     void FixedUpdate()
     {
-        direction = (target.position - transform.position);
+        direction = (target.position - transform.position).notmalized;
         rb.velocity += direction * acceleration * Time.fixedDeltaTime;
 
         if (rb.velocity.magnitude > maxSpeed)
-            rb.velocity = rb.velocity.normalized * acceleration;
+            rb.velocity = rb.velocity.normalized * maxSpeed;
 
     }
 
@@ -39,7 +41,7 @@ public class test3 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("entro");
+        transform.position = Vector2.zero;
         ResetMovement();
     }
 
