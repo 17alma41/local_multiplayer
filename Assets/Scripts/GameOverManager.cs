@@ -8,9 +8,10 @@ public class GameOverManager : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private GameObject gameOverPanel; 
-    [SerializeField] private TextMeshProUGUI winnerText; 
+    [SerializeField] private TextMeshProUGUI winnerText;
 
-    // Start is called before the first frame update
+    RoundManager roundManager;
+
     void Start()
     {
         gameOverPanel.SetActive(false);
@@ -21,7 +22,10 @@ public class GameOverManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         winnerText.text = $"{winnerName} win";
 
+
         GameManager.controlsEnabled = false;
+
+        //roundManager.OnPlayerDeath();
         //Time.timeScale = 0f; //Pausar el tiempo
     }
 

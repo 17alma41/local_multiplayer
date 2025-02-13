@@ -25,7 +25,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameOverManager gameOverManager;
 
     private float flashDuration = 0.1f;
-    private Rigidbody2D rb;
+    Rigidbody2D rb;
+
+    RoundManager roundManager;
 
     private void Start()
     {
@@ -34,6 +36,12 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
 
         healthBar.fillAmount = currentHealth;
+
+        GameObject gameManager = GameObject.Find("GameManager");
+        if (gameManager != null)
+        {
+            roundManager = gameManager.GetComponent<RoundManager>();
+        }
     }
 
     public void TakeDamage(int damage, Vector2 knockbackForce)
@@ -55,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            print(name + " dead");
             Die();
         }
     }
@@ -94,5 +103,8 @@ public class PlayerHealth : MonoBehaviour
         string winnerName = playerName == "Player 1" ? "Player 2" : "Player 1"; // Encontrar que jugador ha ganado
 
         gameOverManager.ShowWinner(winnerName);
+
+        roundManager.OnPlayerDeath();
     }
+
 }
