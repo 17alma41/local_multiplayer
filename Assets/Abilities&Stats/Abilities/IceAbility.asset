@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd92bc6dbfd96148bd5217e7f7c2d7b, type: 3}
   m_Name: IceAbility
   m_EditorClassIdentifier: 
-  abilityName: 
+  abilityName: Ice
   particleEffect: {fileID: 3259008969719672746, guid: 4b1172ab8a15adf4ca89c3f514fa1091, type: 3}
-  playerStats: {fileID: 11400000, guid: c155af517f861f24c902cea914441d16, type: 2}
+  playerStats: {fileID: 11400000, guid: 32ed9adaa5ead8a489a072fc8513aef8, type: 2}

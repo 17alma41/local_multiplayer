@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e9db7fffd504a4fb6d8a19cce192fc, type: 3}
   m_Name: TankAbility
   m_EditorClassIdentifier: 
-  abilityName: 
+  abilityName: Tank
   particleEffect: {fileID: 3259008969719672746, guid: e2881c46e75ff7b4b987a492e888478b, type: 3}
-  playerStats: {fileID: 11400000, guid: c155af517f861f24c902cea914441d16, type: 2}
+  playerStats: {fileID: 11400000, guid: ae089164d770b0546b8fa577d20c5409, type: 2}
