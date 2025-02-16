@@ -5,7 +5,7 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     [SerializeField] Vector2 move = Vector2.right;
-    [SerializeField] Vector2 bounds = Vector2.one; 
+    [SerializeField] Vector2 bounds = Vector2.one;
 
     void Update()
     {
@@ -17,4 +17,5 @@ public class movement : MonoBehaviour
         if (Mathf.Abs(transform.position.y) > bounds.y)
                 transform.position = new Vector3(transform.position.x, -bounds.y * Mathf.Sign(transform.position.y), 0);
     }
+
 }

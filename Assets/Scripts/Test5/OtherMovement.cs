@@ -8,12 +8,16 @@ public class otherMovement : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float acceleration = 5f;
     [SerializeField] float maxSpeed = 5f;
+    [SerializeField] ParticleSystem collisionParticles;
 
+
+    ParticleSystem particles;
     Rigidbody2D rb;
     Vector2 direction;
 
     void Awake()
     {
+        particles = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
 
         ResetMovement();
@@ -42,13 +46,31 @@ public class otherMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Vector3 collisionPosition = transform.position;
+
+        particles.Stop();
+
+        collisionParticles.transform.position = collisionPosition;
+        collisionParticles.Play();
+
         transform.position = Vector2.zero;
         ResetMovement();
+
+        particles.Play();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Vector3 collisionPosition = transform.position;
+
+        particles.Stop();
+
+        collisionParticles.transform.position = collisionPosition;
+        collisionParticles.Play();
+
         transform.position = Vector2.zero;
         ResetMovement();
+
+        particles.Play();
     }
 }
