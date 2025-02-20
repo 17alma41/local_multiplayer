@@ -15,17 +15,17 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     public Image healthBar;
 
-    [Header("")]
-    [SerializeField] SpriteRenderer playerSprite;
-    [SerializeField] SquashAndStretch damageAnimation;
-    [SerializeField] ParticleSystem bloodParticles;
-    [SerializeField] ParticleSystem deadParticles;
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private SquashAndStretch damageAnimation;
+    [SerializeField] private ParticleSystem bloodParticles;
+    [SerializeField] private ParticleSystem deadParticles;
 
     [Header("Game Over")]
     [SerializeField] private GameOverManager gameOverManager;
 
+    private Vector3 initialPosition; 
     private float flashDuration = 0.1f;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     RoundManager roundManager;
 
@@ -33,25 +33,37 @@ public class PlayerHealth : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        currentHealth = maxHealth;
-
-        healthBar.fillAmount = currentHealth;
+        initialPosition = transform.position;
+        ResetPlayer();
 
         GameObject gameManager = GameObject.Find("GameManager");
         if (gameManager != null)
         {
             roundManager = gameManager.GetComponent<RoundManager>();
         }
+
+        if (gameOverManager == null)
+        {
+            gameOverManager = FindObjectOfType<GameOverManager>();
+        }
+    }
+
+    private void ResetPlayer()
+    {
+        currentHealth = maxHealth; 
+        healthBar.fillAmount = 1f; 
+
+        transform.position = initialPosition; 
+        rb.velocity = Vector2.zero; 
+
     }
 
     public void TakeDamage(int damage, Vector2 knockbackForce)
     {
         currentHealth -= damage;
-
-        // Para que la salud unca llegue a menos de 0
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        if(knockbackForce != Vector2.zero)
+        if (knockbackForce != Vector2.zero)
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(knockbackForce, ForceMode2D.Impulse);
@@ -63,7 +75,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            print(name + " dead");
             Die();
         }
     }
@@ -76,7 +87,6 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator FeedbackFlash(SpriteRenderer playerSprite)
     {
         float t = flashDuration;
-
         Color originalColor = playerSprite.color;
 
         while (t > 0)
@@ -90,21 +100,25 @@ public class PlayerHealth : MonoBehaviour
         {
             playerSprite.color = originalColor;
         }
-       
     }
 
     private void Die()
     {
         StopAllCoroutines();
-        playerSprite.color = Color.white; 
+        playerSprite.color = Color.white;
         deadParticles.Play();
         bloodParticles.Play();
 
-        string winnerName = playerName == "Player 1" ? "Player 2" : "Player 1"; // Encontrar que jugador ha ganado
+        string winnerName = playerName == "Player 1" ? "Player 2" : "Player 1";
 
         gameOverManager.ShowWinner(winnerName);
+        StartCoroutine(DelayedRoundChange(winnerName));
+    }
 
-        roundManager.OnPlayerDeath();
+    IEnumerator DelayedRoundChange(string winnerName)
+    {
+        yield return new WaitForSeconds(3f);
+        roundManager.OnPlayerDeath(winnerName);
     }
 
 }

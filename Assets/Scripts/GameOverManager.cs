@@ -6,34 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    [Header("UI")]
+   [Header("UI")]
     [SerializeField] private GameObject gameOverPanel; 
     [SerializeField] private TextMeshProUGUI winnerText;
 
-    RoundManager roundManager;
-
-    void Start()
+    private void Start()
     {
         gameOverPanel.SetActive(false);
+        GameManager.controlsEnabled = true;
     }
 
     public void ShowWinner(string winnerName)
     {
         gameOverPanel.SetActive(true);
-        winnerText.text = $"{winnerName} win";
+        winnerText.text = $"{winnerName} win round";
 
-
-        GameManager.controlsEnabled = false;
-
-        //roundManager.OnPlayerDeath();
-        //Time.timeScale = 0f; //Pausar el tiempo
+        GameManager.controlsEnabled = false; 
     }
 
-    /*
-    public void RestartGame()
-    {
-        Time.timeScale = 1f; //Reactivar el tiempo
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    */
 }
