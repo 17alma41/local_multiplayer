@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e9db7fffd504a4fb6d8a19cce192fc, type: 3}
-  m_Name: TankAbility
+  m_Script: {fileID: 11500000, guid: ac04bfc34c1d8504ebcde30a52a6b2e4, type: 3}
+  m_Name: FrostStriker
   m_EditorClassIdentifier: 
   abilityName: 
-  particleEffect: {fileID: 3259008969719672746, guid: e2881c46e75ff7b4b987a492e888478b, type: 3}
-  playerStats: {fileID: 11400000, guid: c155af517f861f24c902cea914441d16, type: 2}
+  particleEffect: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: d7e926faec623664fb082facafd24d21, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4113469b240701a4dba09429943a9fc5, type: 3}
+  m_Name: BlizzardCallerStats
+  m_EditorClassIdentifier: 
+  groundAcceleration: 14
+  maxGroundHorizontalSpeed: 5
+  groundFriction: 6
+  onAirJump: 3
+  jumpStregth: 6
+  maxJumpPressTime: 0.3
+  airAcceleration: 16
+  maxAirHorizontalSpeed: 7
+  airFriction: 2
+  maxFallSpeed: 4
+  yVelocityLowGravityThreshold: 3
+  defaultGravity: 1.5
+  lowGravity: 0.8
+  fallingGravity: 3

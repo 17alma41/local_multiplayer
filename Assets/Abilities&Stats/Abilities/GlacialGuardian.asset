@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd92bc6dbfd96148bd5217e7f7c2d7b, type: 3}
-  m_Name: IceAbility
+  m_Script: {fileID: 11500000, guid: d7e9db7fffd504a4fb6d8a19cce192fc, type: 3}
+  m_Name: GlacialGuardian
   m_EditorClassIdentifier: 
   abilityName: 
-  particleEffect: {fileID: 3259008969719672746, guid: 4b1172ab8a15adf4ca89c3f514fa1091, type: 3}
-  playerStats: {fileID: 11400000, guid: c155af517f861f24c902cea914441d16, type: 2}
+  particleEffect: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: ae089164d770b0546b8fa577d20c5409, type: 2}

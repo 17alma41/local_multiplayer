@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4113469b240701a4dba09429943a9fc5, type: 3}
-  m_Name: IceStats
+  m_Name: GlacialGuardianStats
   m_EditorClassIdentifier: 
-  groundAcceleration: 20
-  maxGroundHorizontalSpeed: 5
-  groundFriction: 0
-  onAirJump: 2
-  jumpStregth: 7
+  groundAcceleration: 10
+  maxGroundHorizontalSpeed: 3
+  groundFriction: 15
+  onAirJump: 1
+  jumpStregth: 5
   maxJumpPressTime: 0.2
-  airAcceleration: 20
-  maxAirHorizontalSpeed: 5
-  airFriction: 0.003
-  maxFallSpeed: 8
+  airAcceleration: 5
+  maxAirHorizontalSpeed: 2
+  airFriction: 10
+  maxFallSpeed: 5
   yVelocityLowGravityThreshold: 2
-  defaultGravity: 3
-  lowGravity: 1
-  fallingGravity: 4
+  defaultGravity: 4
+  lowGravity: 2
+  fallingGravity: 7

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd92bc6dbfd96148bd5217e7f7c2d7b, type: 3}
+  m_Name: SnowPhantom
+  m_EditorClassIdentifier: 
+  abilityName: 
+  particleEffect: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 930f3c2eb61281a419d17e40d68f5b5a, type: 2}

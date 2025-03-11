@@ -15,4 +15,14 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+
+    public void PlayAgain()
+    {
+        FindObjectOfType<SceneTransition>().LoadScene(1);
+    }
+
+    public void Home()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

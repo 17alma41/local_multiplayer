@@ -6,7 +6,7 @@ El juego consiste en un multijugador local en el que se tendrán que enfrentar e
 
 ### Menú inicial
 
-Un menú inicial para poder empezar el juego o salir del mismo.
+Un menú inicial para poder empezar el juego o salir del mismo. ✔
 
 ### Menú de pausa
 
@@ -28,9 +28,9 @@ En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir l
 
 ### Player
 
-1. Movimiento para los jugadores 
-   - Movimiento 2D (movimiento horizontal y salto) con **rigybody**. ✔
-   - Mismo script para los jugadores pero distintas teclas para cada uno. ✔
+1. Movimiento para los jugadores ✔
+   - Movimiento 2D (movimiento horizontal y salto) con **rigybody**. 
+   - Mismo script para los jugadores pero distintas teclas para cada uno. 
    - Mejora de las stats de las habilidades.
   
 2. Vida de los jugadores ✔
@@ -58,4 +58,4 @@ En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir l
 
 Un mapa con delimitaciones para que los jugadores no puedan escapar, y obligue a los jugadores a enfrentarse entre sí.
 
-El mapa tendrá obstáculos o barreras para que los jugadores puedan defenderse. 
+El mapa tendrá obstáculos o barreras para que los jugadores puedan defenderse. ✔
