@@ -16,8 +16,8 @@ Un menú para poder pausar mientras el juego esta iniciado.
 
 En el juego tendrás que enfrentarte 3 rondas contra tu enemigo para conseguir la victoria final y salir con vida del lugar.
 
-1. Mecánicas básicas 
-    - **Movimiento**: Correr, saltar. ✔
+1. Mecánicas básicas ✔
+    - **Movimiento**: Correr, saltar. 
     - **Acciones**: Atacar, recoger objetos.
     - **Rondas**: 3 rondas.
     
