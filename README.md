@@ -11,7 +11,7 @@ Un menú inicial para poder empezar el juego o salir del mismo. ✔
 ### Menú de pausa
 
 Un menú para poder pausar mientras el juego esta iniciado.
-   - ESC para pausar
+   - ESC para pausar ✔
 
 ### Mecánicas
 

@@ -23,6 +23,11 @@ public class PlayerHealth : MonoBehaviour
     [Header("Game Over")]
     [SerializeField] private GameOverManager gameOverManager;
 
+    [Header("Sounds")]
+    public AudioClip dieSound; 
+    public AudioClip damageSound;
+    private AudioSource audioSource;
+
     private Vector3 initialPosition; 
     private float flashDuration = 0.1f;
     private Rigidbody2D rb;
@@ -32,6 +37,8 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        audioSource = GetComponent<AudioSource>();
 
         initialPosition = transform.position;
         ResetPlayer();
@@ -60,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage, Vector2 knockbackForce)
     {
+        audioSource.PlayOneShot(damageSound);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -105,6 +113,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         StopAllCoroutines();
+        audioSource.PlayOneShot(dieSound);
         playerSprite.color = Color.white;
         deadParticles.Play();
         bloodParticles.Play();

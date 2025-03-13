@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static bool controlsEnabled = true;
+    private PauseMenu pauseMenu;
+
+    private void Start()
+    {
+        pauseMenu = FindObjectOfType<PauseMenu>();
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    controlsEnabled = true;
+        //    SceneManager.LoadScene(0);
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            controlsEnabled = true;
-            SceneManager.LoadScene(0);
+            pauseMenu.TogglePause();
         }
     }
 
